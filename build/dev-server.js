@@ -33,7 +33,7 @@ var apiRoutes = express.Router();
 apiRoutes.get('/seller', function (req, res) {
   res.json({
     errno:0,
-    seller: seller
+    data: seller
   });
 });
 apiRoutes.get('/goods', function (req, res) {
@@ -110,6 +110,6 @@ module.exports = app.listen(port, function (err) {
   }
   // when env is testing, don't need open it
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    // opn(uri)
+    //opn(uri)
   }
 })

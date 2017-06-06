@@ -1,14 +1,19 @@
 import Vue from 'vue';
 import App from './App';
+import VueResource from 'vue-resource';
 import VueRouter from 'vue-router';
-import goods from './components/goods/goods';
+import goods from 'components/goods/goods';
+import ratings from 'components/ratings/ratings';
+import seller from 'components/seller/seller';
+
+import 'common/stylus/index.styl';
 
 Vue.config.productionTip = false;
 
 Vue.use(VueRouter);
+Vue.use(VueResource);
 
 // 0. 如果使用模块化机制编程，導入Vue和VueRouter，要调用 Vue.use(VueRouter)
-
 // 1. 定义（路由）组件。
 // 可以从其他文件 import 进来
 // const Foo = { template: '<div>foo</div>' }
@@ -19,7 +24,10 @@ Vue.use(VueRouter);
 // 通过 Vue.extend() 创建的组件构造器，
 // 或者，只是一个组件配置对象。
 const routes = [
-  { path: '/goods', component: goods }
+  { path: '/goods', component: goods },
+  {path: '/ratings', component: ratings},
+  {path: '/seller', component: seller},
+  {path: '/', redirect: '/goods'}
 ];
 
 // 3. 创建 router 实例，然后传 `routes` 配置
@@ -38,5 +46,4 @@ new Vue({
   template: '<App/>',
   components: { App }
 }).$mount('#app');
-
 // 现在，应用已经启动了！
